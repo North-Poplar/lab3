@@ -23,7 +23,7 @@ public class GetDataController {
     @GetMapping("/getData")
     public String getData(Model model) throws ParseException {
         Date date=new Date();
-        GregorianCalendar calendar = new GregorianCalendar();
+        GregorianCalendar calendar = new GregorianCalendar();//asdadad
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int k=2;
         if(hour>=15){
