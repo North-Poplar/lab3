@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="box">
+    <div id="top">
+        <div id="title">
+            全球新型冠状病毒确诊数据
+        </div>
+        <div id="updateTime">
+            更新时间：2021/5/22 15:00:00
+        </div>
+    </div>
+    <hr>
+    <div id="data">
+        全球感染新型冠状病毒总人数：<span style="color: red">{{confirmedNum}}</span><br>
+        全球感染新型冠状病毒新增人数：<span style="color: red">{{confirmedAdd}}</span><br>
+    </div>
+
+    <div id="countrys">全球新冠病毒确诊人数前五的国家及人数</div>
+</div>
+<script>
+
+    var app = new Vue({
+        el: '#data',
+        data: {
+            confirmedNum: 166699143,
+            confirmedAdd: 560116,
+        }
+    })
+    var myChart = echarts.init(document.getElementById('countrys'));
+
+    myChart.setOption({
+        series: [
+            {
+                name: '确诊人数最多的五个国家',
+                type: 'pie',    // 设置图表类型为饼图
+                radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                data: [          // 数据数组，name 为数据项名称，value 为数据项值
+                    {value: 33104884, name: 'US  33104884'},
+                    {value: 26530132, name: 'India  26530132'},
+                    {value: 16047439, name: 'Brazil  16047439'},
+                    {value: 5979597, name: 'France  5979597'},
+                    {value: 5178648, name: 'Turkey  5178648'}
+                ]
+            }
+        ],
+        title: {
+            text: '全球新冠病毒确诊人数前五的国家及人数',
+            left: 'center',
+            top: 500,
+            textStyle: {
+                color: '#ccc'
+            }
+        },
+    })
+</script>
+</body>
+</html>

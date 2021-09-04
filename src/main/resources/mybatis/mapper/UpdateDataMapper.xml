@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgut.lab3.mapper.UpdateDataMapper">
+    <!--public void creatNewCol(String col1);-->
+    <update id="creatNewCol" parameterType="string">
+        ALTER TABLE covid19_confirmed_global ADD COLUMN ${col1} INT NULL
+    </update>
+
+
+    <!-- public void addColNum(String col,int data,int id);-->
+    <update id="addColNum" parameterType="int">
+        UPDATE covid19_confirmed_global
+        SET ${col} = ${data} WHERE id = ${id}
+    </update>
+
+</mapper>

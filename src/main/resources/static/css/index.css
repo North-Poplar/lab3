@@ -1,0 +1,44 @@
+#box{
+
+    margin: 0 auto;
+    width: 80%;
+    height: 1000px;
+}
+#top{
+    position: absolute;
+    width: 80%;
+    height: 100px;
+    background-color: #FFFFFF;
+}
+#title{
+    position: absolute;
+    text-align: center;
+    font-size: 38px;
+    width: 50%;
+    left: 25%;
+    top:20px;
+}
+#updateTime{
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    width: 30%;
+    left: 60%;
+    top:70px;
+    color: dimgray;
+}
+#data{
+    position: absolute;
+
+    font-size: 26px;
+    width: 60%;
+    left: 11%;
+    top:120px;
+}
+#countrys{
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: 600px;
+    height: 600px;
+}

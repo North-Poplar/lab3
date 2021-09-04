@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgut.lab3.mapper.GetDataMapper">
+    <!--public int confirmedNum(String col);-->
+    <select id="confirmedNum" resultType="int">
+        select sum(${col})
+        from covid19_confirmed_global;
+    </select>
+    <!--public int confirmedAdd(String col1,String col2);-->
+    <select id="confirmedAdd" resultType="int">
+        select sum(${col2})-sum(${col1})
+        from covid19_confirmed_global;
+    </select>
+
+    <!--public List<String> TopFiveconfimedAddCountry(String col);-->
+    <select id="TopFiveConfirmedAddCountry" resultType="java.lang.String">
+        select Country from covid19_confirmed_global
+        group by Country  order by sum(${col}) desc
+            Limit 5;
+    </select>
+    <!--  public List<String> TopFiveconfimedAddCountryNum();-->
+    <select id="TopFiveConfirmedAddCountryNum" resultType="java.lang.Integer">
+        select sum(${col}) from covid19_confirmed_global
+        group by Country  order by sum(${col}) desc
+            Limit 5;
+    </select>
+</mapper>
